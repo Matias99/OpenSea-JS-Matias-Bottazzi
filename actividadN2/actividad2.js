@@ -29,17 +29,18 @@ const agregarProductos = ({nombre, imagen, precio, stock}) => {
 
 // Creo una funcion y dentro un for of para que genere un recorrido dentro del array
 const mostrarProductos = () => {
-    let mensajeInfo = " ";
+    let mensajeInfo = "";
     for(let producto of productos){ // Utilizo el bucle for para recorer los elementos de mi array
         mensajeInfo += 
-        `ID: ${producto.id}
+        `
+        ID: ${producto.id}
         Nombre: ${producto.imagen}
         Precio: ${producto.precio}
         Stock: ${producto.stock}
         `
     } 
     console.log(mensajeInfo);
-}
+};
 
 // Creo una funcion para pedirle los datos al usuario
 const solicitarDatosDelProducto = () => {
@@ -54,11 +55,11 @@ const solicitarDatosDelProducto = () => {
         alert("Por favor ingresa datos validos")
     }
 
-}
+};
 
 // Creo una funcion para eliminar los productos
 const eliminarProducto = (nombre) => {
-    productos.findIndex((producto) => producto.nombre.toLocaleLowerCase() === nombre.toLowerCase()); // Devuelve el indice del primer elemento de un array que cumple con la funcion de prueba proporcionada
+    const indice = productos.findIndex((producto) => producto.nombre.toLocaleLowerCase() === nombre.toLowerCase()); // Devuelve el indice del primer elemento de un array que cumple con la funcion de prueba proporcionada
     if(indice !== -1){
         productos.splice(indice, 1);
         console.log(`Producto ${nombre} eliminado con exito`);
@@ -79,14 +80,14 @@ const filtrarOfertas = (precioMaximo) => {
     } else {
         console.log(`No hay productos mas baratos que ${precioMaximo}`);
     }
-}
+};
 
 const main = () => {
     
     let opcion = "";
     while(opcion !== "5" || opcion !== "Salir"){
-
-    opcion = prompt("Selecciona una opcion: \n1. Agregar Productos \n2. Ver Productos \n3. Eliminar Producto \n4. Encontrar Ofertas \n 5. Salir");
+    
+    opcion = prompt("Selecciona una opcion: \n1. Agregar Productos \n2. Ver Productos \n3. Eliminar Producto \n4. Encontrar Ofertas \n5. Salir");
         
    // El switch lo utilizo para evaluar casos especificos
     switch(opcion){
